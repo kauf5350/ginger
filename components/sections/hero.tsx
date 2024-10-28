@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Card, CardContent } from '@/components/ui/card'
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 import { ProcessCarousel } from './hero/process-carousel'
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
 
 // Hosts data
 const hosts = [
@@ -37,7 +37,7 @@ export function Hero() {
             Ginger Beer Workshop
           </h1>
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            Learn how to make your own naturally fermented ginger beer. This workshop will guide you through a 10-day process of creating a delicious, probiotic-rich beverage from scratch.
+            Learn how to make your own naturally fermented ginger beer. This workshop will guide you through a 10-day process of creating a delicious, probiotic-rich beverage from scratch. A healthy gut is a healthy butt.
           </p>
           
           {/* Hosts Section */}
@@ -49,24 +49,39 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Timeline Overview Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Card>
-            <CardContent className="grid gap-4 p-6">
-              <h3 className="text-lg font-semibold">Workshop Timeline</h3>
-              <div className="grid gap-2">
-                <TimelineItem day={1} description="Preparation and ginger bug start" />
-                <TimelineItem day="2-5" description="Feeding the ginger bug" />
-                <TimelineItem day={6} description="Main brew preparation" />
-                <TimelineItem day="7-10" description="Fermentation and bottling" />
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        {/* 3D Timeline Card */}
+        <CardContainer className="inter-var">
+          <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+            <CardItem
+              translateZ="50"
+              className="text-xl font-bold text-neutral-600 dark:text-white"
+            >
+              Workshop Timeline
+            </CardItem>
+            <CardItem
+              as="ul"
+              translateZ="60"
+              className="text-neutral-500 text-sm dark:text-neutral-300 mt-4 space-y-4"
+            >
+              <li className="flex items-center gap-2">
+                <span className="font-semibold">Day 1:</span>
+                Preparation and primary fermentation
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold">Days 2-5:</span>
+                Let that baby feed
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold">Day 6:</span>
+                Bottle for secondary fermentation
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="font-semibold">Days 7-10:</span>
+                Bacteria farts will carbonate
+              </li>
+            </CardItem>
+          </CardBody>
+        </CardContainer>
       </div>
 
       {/* Process Carousel */}
@@ -79,17 +94,5 @@ export function Hero() {
         <ProcessCarousel />
       </motion.div>
     </section>
-  )
-}
-
-// Helper component for timeline items
-function TimelineItem({ day, description }: { day: string | number, description: string }) {
-  return (
-    <div className="flex items-center gap-4">
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold">
-        {day}
-      </div>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
   )
 }
