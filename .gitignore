@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+public/images/process/day-1.jpg
+public/images/process/day-6.jpg
+public/images/process/days-7-10.jpg
+public/images/process/days-2-5.jpg
