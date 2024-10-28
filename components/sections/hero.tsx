@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 import { ProcessCarousel } from './hero/process-carousel'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
+import { Highlight } from '@/components/ui/hero-highlight'
 
 // Hosts data
 const hosts = [
@@ -36,9 +37,14 @@ export function Hero() {
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1]">
             Ginger Beer Workshop
           </h1>
-          <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            Learn how to make your own naturally fermented ginger beer. This workshop will guide you through a 10-day process of creating a delicious, probiotic-rich beverage from scratch. A healthy gut is a healthy butt.
-          </p>
+          <div className="space-y-2">
+            <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+              Learn how to make your own naturally fermented ginger beer. This workshop will guide you through a 10-day process of creating a delicious, probiotic-rich beverage from scratch.
+            </p>
+            <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
+              <Highlight>A healthy gut is a healthy butt.</Highlight>
+            </p>
+          </div>
           
           {/* Hosts Section */}
           <div className="mt-8">
