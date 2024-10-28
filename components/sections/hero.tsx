@@ -3,6 +3,23 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
+import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
+
+// Hosts data
+const hosts = [
+  {
+    id: 1,
+    name: "David Kaufman",
+    designation: "Product",
+    image: "/images/hosts/david.jpg", // Local image path
+  },
+  {
+    id: 2,
+    name: "Chelsea Tam",
+    designation: "People Operations",
+    image: "/images/hosts/chelsea.jpg", // Local image path
+  },
+]
 
 export function Hero() {
   return (
@@ -21,6 +38,14 @@ export function Hero() {
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
             Learn how to make your own naturally fermented ginger beer. This workshop will guide you through a 10-day process of creating a delicious, probiotic-rich beverage from scratch.
           </p>
+          
+          {/* Hosts Section */}
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold mb-4">Your Hosts</h2>
+            <div className="flex flex-row items-center">
+              <AnimatedTooltip items={hosts} />
+            </div>
+          </div>
         </motion.div>
 
         {/* Timeline Overview Card */}
