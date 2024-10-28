@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
+import { ProcessCarousel } from './hero/process-carousel'
 
 // Hosts data
 const hosts = [
@@ -11,13 +12,13 @@ const hosts = [
     id: 1,
     name: "David Kaufman",
     designation: "Product",
-    image: "/images/hosts/david.jpg", // Local image path
+    image: "/images/hosts/david.jpg",
   },
   {
     id: 2,
     name: "Chelsea Tam",
     designation: "People Operations",
-    image: "/images/hosts/chelsea.jpg", // Local image path
+    image: "/images/hosts/chelsea.jpg",
   },
 ]
 
@@ -68,20 +69,14 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Final Product Image */}
+      {/* Process Carousel */}
       <motion.div 
-        className="mt-12 relative h-[300px] md:h-[400px] rounded-lg overflow-hidden"
+        className="mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <Image
-          src="/images/process/final-product.jpg"
-          alt="Finished Ginger Beer"
-          fill
-          className="object-cover"
-          priority
-        />
+        <ProcessCarousel />
       </motion.div>
     </section>
   )
