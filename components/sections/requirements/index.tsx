@@ -7,7 +7,7 @@ import { EquipmentList } from './equipment-list'
 
 export function Requirements() {
   return (
-    <section className="container px-4 py-12 md:py-24">
+    <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

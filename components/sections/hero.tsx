@@ -25,7 +25,7 @@ const hosts = [
 
 export function Hero() {
   return (
-    <section className="container px-4 py-12 md:py-24">
+    <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
       <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
         {/* Text Content */}
         <motion.div 

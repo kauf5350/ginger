@@ -10,7 +10,7 @@ export function Timeline() {
   const [currentStep, setCurrentStep] = useState(0)
 
   return (
-    <section className="container px-4 py-12 md:py-24">
+    <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
       <div className="space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold tracking-tighter">Day by Day Instructions</h2>
