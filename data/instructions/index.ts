@@ -58,43 +58,56 @@ export const instructions: DayInstructions[] = [
   },
   {
     day: 6,
-    title: "Making the Main Brew",
-    description: "Time to start your main ginger beer brew using your active ginger bug.",
+    title: "Bottling",
+    description: "On day 6 we're going to be bottling the mixture.",
     steps: [
       {
         id: "6-1",
-        title: "Prepare Ginger Tea",
-        description: "Simmer 1/2 cup grated ginger in 4 cups water for 15 minutes.",
-        tips: ["Strong tea makes spicier ginger beer"],
-        image: "/images/process/tea.jpg"
+        title: "Prepare Bottles",
+        description: "Make sure to wash your swing-top bottles.",
+        warnings: ["Ideally don't use antibacterial soap"]
       },
       {
         id: "6-2",
-        title: "Add Sweetener",
-        description: "Dissolve 1 cup sugar in the hot ginger tea.",
-        warnings: ["Don't skip the sugar - it's food for fermentation"],
-        image: "/images/process/sweetener.jpg"
+        title: "Strain the Mixture",
+        description: "We'll want to strain the mixture into a large bowl through a fine mesh strainer."
+      },
+      {
+        id: "6-3",
+        title: "Fill the Bottles",
+        description: "Ladel, spoon, scoop, or siphon the mixture into your swing-top bottles using a funnel to avoid a mess.",
+        tips: ["Leave a little bit of room at the top, maybe 2-3 inches"]
+      },
+      {
+        id: "6-4",
+        title: "Store",
+        description: "Close the bottles and park them back at your fermentation station."
       }
     ]
   },
   {
     day: "Days 7-10",
-    title: "Fermentation and Bottling",
-    description: "The final stage where your ginger beer develops its flavor and fizz.",
+    title: "Secondary Fermentation",
+    description: "This is our secondary fermentation. The critters inside the bottle will feed on the remaining sugar and fart out some gas. Because the bottles are sealed, those farts will get cycled back into the liquid and POOF > carbonatiòn",
     steps: [
       {
         id: "7-1",
-        title: "First Fermentation",
-        description: "Let the brew ferment at room temperature for 2-3 days.",
-        warnings: ["Keep away from direct sunlight"],
-        image: "/images/process/fermentation.jpg"
+        title: "The Daily Burp",
+        description: "Each day, it is important to open the bottles. This is called burping.",
+        tips: ["Do this over the sink just in case"],
+        warnings: ["If you're lucky, one day you'll start to see some fizz when you pop it open", "If you're unlucky, one day it will blast open and go everywhere like a classroom volcano experiment"]
       },
       {
         id: "7-2",
-        title: "Bottling",
-        description: "Strain and bottle the ginger beer, leaving some headspace.",
-        warnings: ["Don't fill bottles completely to allow for carbonation"],
-        image: "/images/process/bottling.jpg"
+        title: "Check Carbonation",
+        description: "When you burp the bottles, you'll be able to gauge the carbonation level. The more dramatic the burp, the more carbonated your brew has become.",
+        tips: ["Listen for the fizz", "Watch for bubbles rising"]
+      },
+      {
+        id: "7-3",
+        title: "Finishing Up",
+        description: "When it's carbonated to your desired bubble level, you can put them in your fridge and enjoy!",
+        tips: ["Cold temperature will slow down fermentation", "Your ginger beer will keep getting less sweet over time"]
       }
     ]
   }
