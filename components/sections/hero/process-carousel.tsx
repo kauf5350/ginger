@@ -53,7 +53,7 @@ const processSteps = [
 }));
 
 export function ProcessCarousel() {
-  const cards = processSteps.map((card, index) => (
+  const cards = processSteps.map((card) => (
     <StaticCard key={card.src} card={card} />
   ));
 
