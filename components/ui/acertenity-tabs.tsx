@@ -11,7 +11,7 @@ type Tab = {
 };
 
 export const Tabs = ({
-  tabs: propTabs,
+  tabs: _tabs,
   containerClassName,
   activeTabClassName,
   tabClassName,
@@ -23,18 +23,18 @@ export const Tabs = ({
   tabClassName?: string;
   contentClassName?: string;
 }) => {
-  const [active, setActive] = useState<Tab>(propTabs[0]);
-  const [tabs, setTabs] = useState<Tab[]>(propTabs);
+  const [active, setActive] = useState<Tab>(_tabs[0]);
+  const [tabs, setTabs] = useState<Tab[]>(_tabs);
 
   const moveSelectedTabToTop = (idx: number) => {
-    const newTabs = [...propTabs];
+    const newTabs = [..._tabs];
     const selectedTab = newTabs.splice(idx, 1);
     newTabs.unshift(selectedTab[0]);
     setTabs(newTabs);
     setActive(newTabs[0]);
   };
 
-  const [hovering, setHovering] = useState(false);
+  const [_hovering, setHovering] = useState(false);
 
   return (
     <div className="flex flex-col w-full">
@@ -44,7 +44,7 @@ export const Tabs = ({
           containerClassName
         )}
       >
-        {propTabs.map((tab, idx) => (
+        {_tabs.map((tab, idx) => (
           <button
             key={tab.title}
             onClick={() => {

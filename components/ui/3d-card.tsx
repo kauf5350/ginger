@@ -8,6 +8,7 @@ import React, {
   useContext,
   useRef,
   useEffect,
+  useCallback,
 } from "react";
 
 const MouseEnterContext = createContext<
@@ -45,6 +46,20 @@ export const CardContainer = ({
     setIsHovered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
+  const handleAnimations = useCallback(() => {
+    if (!containerRef.current) return;
+    if (isHovered) {
+      containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    } else {
+      containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    }
+  }, [isHovered]);
+
+  useEffect(() => {
+    handleAnimations();
+  }, [handleAnimations]);
+
   return (
     <MouseEnterContext.Provider value={[isHovered, setIsHovered]}>
       <div

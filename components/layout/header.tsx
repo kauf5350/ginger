@@ -3,13 +3,19 @@
 import { useTheme } from 'next-themes'
 import { ThemeToggle } from '@/components/shared/theme-toggle'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export function Header() {
-  const { resolvedTheme, theme } = useTheme()
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  // Show dark mode logo by default if theme is not yet resolved
-  const logoSrc = !resolvedTheme 
-    ? '/paid-logo-white.png'
+  // Wait until mounted to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const logoSrc = !mounted 
+    ? '/paid-logo-white.png' // Default logo while mounting
     : resolvedTheme === 'dark' 
       ? '/paid-logo-white.png' 
       : '/paid-logo-black.png'
