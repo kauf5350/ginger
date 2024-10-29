@@ -1,11 +1,32 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs } from '@/components/ui/acertenity-tabs'
 import { IngredientList } from './ingredient-list'
 import { EquipmentList } from './equipment-list'
 
 export function Requirements() {
+  const tabs = [
+    {
+      title: "Ingredients",
+      value: "ingredients",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
+          <IngredientList />
+        </div>
+      )
+    },
+    {
+      title: "Equipment",
+      value: "equipment",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
+          <EquipmentList />
+        </div>
+      )
+    }
+  ]
+
   return (
     <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
       <motion.div
@@ -21,18 +42,12 @@ export function Requirements() {
           </p>
         </div>
 
-        <Tabs defaultValue="ingredients" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="ingredients">Ingredients</TabsTrigger>
-            <TabsTrigger value="equipment">Equipment</TabsTrigger>
-          </TabsList>
-          <TabsContent value="ingredients" className="space-y-4">
-            <IngredientList />
-          </TabsContent>
-          <TabsContent value="equipment" className="space-y-4">
-            <EquipmentList />
-          </TabsContent>
-        </Tabs>
+        <div className="h-[800px] md:h-[600px] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full">
+          <Tabs 
+            tabs={tabs} 
+            contentClassName="bg-background"
+          />
+        </div>
       </motion.div>
     </section>
   )

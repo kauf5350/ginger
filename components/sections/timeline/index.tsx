@@ -1,13 +1,20 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { Tabs } from '@/components/ui/acertenity-tabs'
 import { instructions } from '@/data/instructions'
 import { DayCard } from './day-card'
-import { ProgressIndicator } from './progress-indicator'
 
 export function Timeline() {
-  const [currentStep, setCurrentStep] = useState(0)
+  const tabs = instructions.map(instruction => ({
+    title: `Day ${instruction.day}`,
+    value: instruction.day.toString(),
+    content: (
+      <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
+        <DayCard instructions={instruction} isActive={true} />
+      </div>
+    )
+  }))
 
   return (
     <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
@@ -19,26 +26,12 @@ export function Timeline() {
           </p>
         </div>
 
-        <ProgressIndicator
-          steps={instructions}
-          currentStep={currentStep}
-          onStepClick={setCurrentStep}
-        />
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentStep}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <DayCard
-              instructions={instructions[currentStep]}
-              isActive={true}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <div className="h-[800px] md:h-[600px] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full">
+          <Tabs 
+            tabs={tabs} 
+            contentClassName="bg-background"
+          />
+        </div>
       </div>
     </section>
   )
