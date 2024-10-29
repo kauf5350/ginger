@@ -12,12 +12,15 @@ interface DayCardProps {
 }
 
 export function DayCard({ instructions, isActive }: DayCardProps) {
+  const dayDisplay = typeof instructions.day === 'string' 
+    ? instructions.day 
+    : `Day ${instructions.day}`
+
   return (
     <Card className={`transition-all duration-300 ${isActive ? 'border-primary' : ''}`}>
       <CardHeader>
         <div className="flex items-baseline gap-2">
-          <span className="text-sm text-muted-foreground">Day</span>
-          <span className="text-xl font-bold">{instructions.day}</span>
+          <span className="text-xl font-bold">{dayDisplay}</span>
         </div>
         <h3 className="text-lg font-semibold">{instructions.title}</h3>
         <p className="text-sm text-muted-foreground">{instructions.description}</p>

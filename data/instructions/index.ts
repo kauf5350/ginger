@@ -33,23 +33,26 @@ export const instructions: DayInstructions[] = [
   },
   {
     day: "Days 2-5",
-    title: "Feeding Your Ginger Bug",
-    description: "During these days, you'll feed your ginger bug daily to build up the bacterial culture.",
+    title: "Primary Fermentation",
+    description: "This is going to be our primary fermentation period. You just let that baby feed on the sugar and fart out bubbles. Don't touch it, don't stir it, and don't even look at it for too long.",
     steps: [
       {
         id: "2-1",
-        title: "Daily Feeding",
-        description: "Add 1 tablespoon each of grated ginger and sugar daily.",
-        tips: ["Feed at approximately the same time each day"],
-        warnings: ["Skip a feeding if liquid gets too full"],
-        image: "/images/process/feeding.jpg"
+        title: "The Waiting Game",
+        description: "The primary fermentation period might take 4 days or it might take 7. It really depends but that's how fermentation goes sometimes."
       },
       {
         id: "2-2",
-        title: "Monitor Activity",
-        description: "Look for signs of fermentation: bubbles, fizzing sounds, sweet-sour smell.",
-        tips: ["Tiny bubbles should start appearing by day 3"],
-        image: "/images/process/bubbles.jpg"
+        title: "Watch for Activity",
+        description: "After the first couple of days you'll start to notice some bubbles at the top of the mixture. This means we've got some ACTIVITY going down. This activity means the bacteria is feeding on the sugar, and the mixture will become less sweet as this happens.",
+        tips: ["Get excited"]
+      },
+      {
+        id: "2-3",
+        title: "Taste Test",
+        description: "After 4 days, assuming there are some bubbles, you can start to give the animal a little tasteypoo to check on sweetness.",
+        tips: ["If you want it less sweet, give it a little longer", "If you want it more sweet, move on to the next step"],
+        warnings: ["We need SOME sugar remaining for the secondary fermentation"]
       }
     ]
   },
