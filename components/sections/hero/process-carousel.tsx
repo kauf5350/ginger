@@ -48,7 +48,7 @@ const processSteps = [
     title: "Secondary Fermentation",
     src: "/images/process/days-7-10.jpg",
   },
-].map((step, i) => ({
+].map((step) => ({
   ...step
 }));
 
