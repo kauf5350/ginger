@@ -7,46 +7,6 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { baseRecipe } from '@/data/recipe'
 import { Scale, Minus, Plus } from 'lucide-react'
 
-// Add this CSS to your globals.css file
-// Or create a new styles/slider.css and import it in your layout.tsx
-const sliderStyles = `
-  .slider-track {
-    height: 4px !important;
-    width: 100%;
-    position: relative;
-    border-radius: 9999px;
-    background-color: hsl(var(--muted)) !important;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .slider-range {
-    height: 100%;
-    position: absolute;
-    background-color: hsl(var(--primary)) !important;
-    border-radius: 9999px;
-  }
-
-  .slider-thumb {
-    height: 16px !important;
-    width: 16px !important;
-    border-radius: 9999px;
-    background-color: hsl(var(--primary)) !important;
-    border: 2px solid hsl(var(--background)) !important;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-
-  .slider-thumb:hover {
-    transform: scale(1.1);
-  }
-
-  .slider-thumb:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary));
-  }
-`
-
 export function Calculator() {
   const [gingerAmount, setGingerAmount] = useState([500])
 
@@ -95,7 +55,6 @@ export function Calculator() {
 
   return (
     <section id="calculator" className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
-      <style jsx global>{sliderStyles}</style>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
