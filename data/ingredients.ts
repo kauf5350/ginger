@@ -4,30 +4,22 @@ export const ingredients: Ingredient[] = [
   {
     id: "fresh-ginger",
     name: "Fresh Ginger",
-    amount: "200g",
-    notes: "Organic preferred, young ginger works best",
+    amount: "500g",
+    notes: "Get the freshest gingeriest ginger you can find",
     image: "/images/ingredients/ginger.jpg"
   },
   {
     id: "sugar",
-    name: "Raw Sugar",
-    amount: "200g",
-    notes: "Organic raw sugar or panela recommended",
+    name: "Sugar",
+    amount: "360g",
+    notes: "Don't use salt",
     image: "/images/ingredients/sugar.jpg"
   },
   {
     id: "water",
-    name: "Filtered Water",
-    amount: "2L",
-    notes: "Chlorine-free water is essential",
+    name: "Water",
+    amount: "12 cups",
+    notes: "Adam's finest tap ale",
     image: "/images/ingredients/water.jpg"
-  },
-  {
-    id: "lemon",
-    name: "Lemon",
-    amount: "1-2",
-    notes: "For added flavor and pH balance",
-    optional: true,
-    image: "/images/ingredients/lemon.jpg"
   }
 ]

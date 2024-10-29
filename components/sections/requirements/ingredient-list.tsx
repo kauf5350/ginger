@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Card, CardContent } from '@/components/ui/card'
+import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid'
 import { Badge } from '@/components/ui/badge'
 import { ingredients } from '@/data/ingredients'
 
 export function IngredientList() {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
+    <BentoGrid className="md:grid-cols-3 auto-rows-[20rem] mb-8">
       {ingredients.map((ingredient, index) => (
         <motion.div
           key={ingredient.id}
@@ -16,32 +16,36 @@ export function IngredientList() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: index * 0.1 }}
         >
-          <Card>
-            <CardContent className="flex gap-4 p-6">
-              <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg">
-                <Image
-                  src={ingredient.image}
-                  alt={ingredient.name}
-                  fill
-                  className="object-cover"
-                />
+          <BentoGridItem
+            title={
+              <div className="flex items-center gap-2">
+                <span>{ingredient.name}</span>
+                {ingredient.optional && (
+                  <Badge variant="secondary">Optional</Badge>
+                )}
               </div>
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-semibold">{ingredient.name}</h3>
-                  {ingredient.optional && (
-                    <Badge variant="secondary">Optional</Badge>
-                  )}
-                </div>
-                <p className="text-sm font-medium">{ingredient.amount}</p>
+            }
+            description={
+              <div className="space-y-2">
+                <p className="text-base font-medium">{ingredient.amount}</p>
                 {ingredient.notes && (
                   <p className="text-sm text-muted-foreground">{ingredient.notes}</p>
                 )}
               </div>
-            </CardContent>
-          </Card>
+            }
+            header={
+              <div className="relative w-full h-40">
+                <Image
+                  src={ingredient.image}
+                  alt={ingredient.name}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+            }
+          />
         </motion.div>
       ))}
-    </div>
+    </BentoGrid>
   )
 }

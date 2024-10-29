@@ -11,7 +11,7 @@ export function Requirements() {
       title: "Ingredients",
       value: "ingredients",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
+        <div className="w-full overflow-hidden relative rounded-2xl p-6 bg-background border">
           <IngredientList />
         </div>
       )
@@ -20,7 +20,7 @@ export function Requirements() {
       title: "Equipment",
       value: "equipment",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
+        <div className="w-full overflow-hidden relative rounded-2xl p-6 bg-background border">
           <EquipmentList />
         </div>
       )
@@ -33,7 +33,7 @@ export function Requirements() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="space-y-4"
+        className="space-y-8"
       >
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold tracking-tighter">What You'll Need</h2>
@@ -42,11 +42,11 @@ export function Requirements() {
           </p>
         </div>
 
-        <div className="h-[600px] md:h-[400px] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full">
+        <div className="relative flex flex-col max-w-6xl mx-auto w-full pb-8">
           <Tabs 
             tabs={tabs} 
             contentClassName="bg-background"
-            containerClassName="justify-center mb-2"
+            containerClassName="justify-center"
           />
         </div>
       </motion.div>
