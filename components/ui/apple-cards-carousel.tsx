@@ -41,6 +41,9 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -57,13 +60,43 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const scrollLeft = () => {
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
+    setScrollLeft(carouselRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    if (!carouselRef.current) return;
+    
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+    checkScrollability();
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  // Prevent default drag behavior
+  const preventDragHandler = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const scrollToPrevious = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
     }
   };
 
-  const scrollRight = () => {
+  const scrollToNext = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
     }
@@ -92,9 +125,17 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     >
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+          className={cn(
+            "flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none] cursor-grab active:cursor-grabbing",
+            isDragging && "select-none"
+          )}
           ref={carouselRef}
           onScroll={checkScrollability}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onDragStart={preventDragHandler}
         >
           <div
             className={cn(
@@ -135,14 +176,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         <div className="flex justify-end gap-2 mr-10">
           <button
             className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollLeft}
+            onClick={scrollToPrevious}
             disabled={!canScrollLeft}
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
           </button>
           <button
             className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollRight}
+            onClick={scrollToNext}
             disabled={!canScrollRight}
           >
             <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />

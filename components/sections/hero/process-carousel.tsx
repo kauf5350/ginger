@@ -21,7 +21,8 @@ function StaticCard({ card }: { card: typeof processSteps[0] }) {
         src={card.src}
         alt={card.title}
         fill
-        className="object-cover absolute z-10 inset-0"
+        draggable={false}
+        className="object-cover absolute z-10 inset-0 select-none"
       />
     </div>
   );
@@ -57,8 +58,11 @@ export function ProcessCarousel() {
 
   return (
     <div className="w-full">
-      <div className="text-center">
-        <h2 className="text-2xl font-bold">Process Overview</h2>
+      <div className="space-y-2 text-center">
+        <h2 className="text-3xl font-bold tracking-tighter">Process Overview</h2>
+        <p className="text-lg text-muted-foreground">
+          An aggressively effervescent treat
+        </p>
       </div>
       <Carousel items={cards} />
     </div>
