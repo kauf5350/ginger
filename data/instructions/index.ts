@@ -3,34 +3,36 @@ import { DayInstructions } from '@/types/instruction'
 export const instructions: DayInstructions[] = [
   {
     day: 1,
-    title: "Starting Your Ginger Bug",
-    description: "The first day is all about creating your ginger bug starter, which will be the foundation of your fermentation.",
+    title: "Starting Your Primary Fermentation",
+    description: "Today we'll be getting the primary fermentation started. We'll be preparing the ingredients and assembling them in our large glass vessel.",
     steps: [
       {
         id: "1-1",
-        title: "Prepare Your Ginger",
-        description: "Grate 2 tablespoons of fresh ginger, including the skin. The skin contains beneficial wild yeasts.",
-        tips: ["Use organic ginger if possible", "No need to peel the ginger"],
-        image: "/images/process/grated-ginger.jpg"
+        title: "Recipe Calculation",
+        description: "Use the recipe calculator to figure out how to scale this to your needs. We'll be using the full recipe in these directions, but you can certainly scale that up or down, as desired."
       },
       {
         id: "1-2",
-        title: "Add Sugar",
-        description: "Add 2 tablespoons of raw sugar to your jar.",
-        tips: ["Raw sugar works better than refined sugar"],
-        image: "/images/process/sugar-add.jpg"
+        title: "Prepare Ginger",
+        description: "Peel and grate 500g of fresh ginger using the large holes on a box grater.",
+        tips: ["Don't shred your knuckles on the grater"]
       },
       {
         id: "1-3",
-        title: "Add Water",
-        description: "Add 2 cups of non-chlorinated water and stir well.",
-        warnings: ["Chlorinated water can kill beneficial bacteria"],
-        image: "/images/process/water-add.jpg"
+        title: "Combine Ingredients",
+        description: "Add the ginger, 350g of sugar, and 12 cups of water to the large glass vessel.",
+        tips: ["Give that baby a little stirypoo"]
+      },
+      {
+        id: "1-4",
+        title: "Cover and Place",
+        description: "Cover it with a cheese cloth or a clean towel and park that vessel on your counter, now deemed the fermentation station.",
+        tips: ["Choose a spot away from direct sunlight"]
       }
     ]
   },
   {
-    day: "2-5",
+    day: "Days 2-5",
     title: "Feeding Your Ginger Bug",
     description: "During these days, you'll feed your ginger bug daily to build up the bacterial culture.",
     steps: [
@@ -73,7 +75,7 @@ export const instructions: DayInstructions[] = [
     ]
   },
   {
-    day: "7-10",
+    day: "Days 7-10",
     title: "Fermentation and Bottling",
     description: "The final stage where your ginger beer develops its flavor and fizz.",
     steps: [

@@ -3,7 +3,7 @@ import { Recipe } from '@/types/recipe'
 export const baseRecipe: Recipe = {
   baseGinger: 500, // Base ginger amount in grams
   ratios: {
-    sugar: 0.72, // 360g sugar / 500g ginger = 0.72
+    sugar: 0.7, // 350g sugar / 500g ginger = 0.7
     water: 0.024, // 12 cups / 500g ginger = 0.024 cups per gram
   },
   ingredients: [
@@ -14,7 +14,7 @@ export const baseRecipe: Recipe = {
     },
     {
       name: "Sugar",
-      amount: 360,
+      amount: 350,
       unit: "g"
     },
     {

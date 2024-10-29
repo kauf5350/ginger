@@ -11,7 +11,7 @@ export const ingredients: Ingredient[] = [
   {
     id: "sugar",
     name: "Sugar",
-    amount: "360g",
+    amount: "350g",
     notes: "Don't use salt",
     image: "/images/ingredients/sugar.jpg"
   },

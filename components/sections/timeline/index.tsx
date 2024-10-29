@@ -7,7 +7,9 @@ import { DayCard } from './day-card'
 
 export function Timeline() {
   const tabs = instructions.map(instruction => ({
-    title: `Day ${instruction.day}`,
+    title: typeof instruction.day === 'string' 
+      ? instruction.day 
+      : `Day ${instruction.day}`,
     value: instruction.day.toString(),
     content: (
       <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
