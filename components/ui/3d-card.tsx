@@ -35,7 +35,7 @@ export const CardContainer = ({
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseEnter = (_e: React.MouseEvent<HTMLDivElement>) => {
     setIsHovered(true);
     if (!containerRef.current) return;
   };
@@ -57,7 +57,7 @@ export const CardContainer = ({
 
   useEffect(() => {
     handleAnimations();
-  }, [handleAnimations]);
+  }, [isHovered]);
 
   return (
     <MouseEnterContext.Provider value={[isHovered, setIsHovered]}>
