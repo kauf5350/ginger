@@ -12,7 +12,7 @@ export function Timeline() {
       : `Day ${instruction.day}`,
     value: instruction.day.toString(),
     content: (
-      <div className="w-full overflow-hidden relative h-full rounded-2xl p-6 bg-background border">
+      <div className="w-full overflow-visible relative rounded-2xl p-6 bg-background border">
         <DayCard instructions={instruction} isActive={true} />
       </div>
     )
@@ -28,10 +28,10 @@ export function Timeline() {
           </p>
         </div>
 
-        <div className="h-[800px] md:h-[600px] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full">
+        <div className="relative flex flex-col max-w-5xl mx-auto w-full">
           <Tabs 
             tabs={tabs} 
-            contentClassName="bg-background"
+            contentClassName="bg-background min-h-[600px]"
           />
         </div>
       </div>
