@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Carousel } from "@/components/ui/apple-cards-carousel";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 // Static card component without click behavior
@@ -49,7 +48,9 @@ const processSteps = [
     title: "Secondary Fermentation",
     src: "/images/process/days-7-10.jpg",
   },
-];
+].map((step, i) => ({
+  ...step
+}));
 
 export function ProcessCarousel() {
   const cards = processSteps.map((card, index) => (

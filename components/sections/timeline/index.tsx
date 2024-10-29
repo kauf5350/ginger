@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { Tabs } from '@/components/ui/acertenity-tabs'
 import { instructions } from '@/data/instructions'
 import { DayCard } from './day-card'
