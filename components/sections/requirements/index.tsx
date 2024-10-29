@@ -28,24 +28,25 @@ export function Requirements() {
   ]
 
   return (
-    <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
+    <section className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="space-y-6"
+        className="space-y-4"
       >
-        <div className="space-y-2">
+        <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold tracking-tighter">What You'll Need</h2>
           <p className="text-lg text-muted-foreground">
             Gather these ingredients and equipment before starting the workshop
           </p>
         </div>
 
-        <div className="h-[800px] md:h-[600px] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full">
+        <div className="h-[600px] md:h-[400px] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full">
           <Tabs 
             tabs={tabs} 
             contentClassName="bg-background"
+            containerClassName="justify-center mb-2"
           />
         </div>
       </motion.div>

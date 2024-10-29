@@ -11,9 +11,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Requirements />
-        <Timeline />
-        <Calculator />
+        <div className="space-y-12 md:space-y-16">
+          <Requirements />
+          <Timeline />
+          <Calculator />
+        </div>
       </main>
     </div>
   );

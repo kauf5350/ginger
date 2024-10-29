@@ -25,7 +25,7 @@ const hosts = [
 
 export function Hero() {
   return (
-    <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
+    <section className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
       <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
         {/* Text Content */}
         <motion.div 
@@ -60,9 +60,9 @@ export function Hero() {
           <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
             <CardItem
               translateZ="50"
-              className="text-xl font-bold text-neutral-600 dark:text-white"
+              className="text-3xl font-bold tracking-tighter text-neutral-600 dark:text-white"
             >
-              Workshop Timeline
+              Process Overview
             </CardItem>
             <CardItem
               as="ul"
@@ -92,7 +92,7 @@ export function Hero() {
 
       {/* Process Carousel */}
       <motion.div 
-        className="mt-12"
+        className="mt-8 md:mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
