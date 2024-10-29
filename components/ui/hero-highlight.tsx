@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
-import React, { useRef, useState, useCallback } from "react";
+import { motion } from "framer-motion";
+import React from "react";
 
 export const Highlight = ({ 
   children,
@@ -10,8 +10,6 @@ export const Highlight = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const divRef = useRef<HTMLDivElement>(null);
-
   return (
     <motion.span
       initial={{
