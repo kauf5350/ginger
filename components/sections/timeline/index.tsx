@@ -17,7 +17,7 @@ export function Timeline() {
   }))
 
   return (
-    <section className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
+    <section id="timeline" className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
       <div className="space-y-8">
         <div className="space-y-2 text-center">
           <h2 className="text-3xl font-bold tracking-tighter">Day by Day Instructions</h2>

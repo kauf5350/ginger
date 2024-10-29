@@ -28,7 +28,7 @@ export function Requirements() {
   ]
 
   return (
-    <section className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
+    <section id="requirements" className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -36,7 +36,7 @@ export function Calculator() {
   }
 
   return (
-    <section className="container max-w-7xl mx-auto px-4 py-12 md:py-24">
+    <section id="calculator" className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

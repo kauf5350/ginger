@@ -6,6 +6,7 @@ import { AnimatedTooltip } from '@/components/ui/animated-tooltip'
 import { ProcessCarousel } from './hero/process-carousel'
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card'
 import { Highlight } from '@/components/ui/hero-highlight'
+import { ChevronRight } from 'lucide-react'
 
 // Hosts data
 const hosts = [
@@ -24,6 +25,22 @@ const hosts = [
 ]
 
 export function Hero() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 80 // Adjust if you have a fixed header
+      const bodyRect = document.body.getBoundingClientRect().top
+      const elementRect = element.getBoundingClientRect().top
+      const elementPosition = elementRect - bodyRect
+      const offsetPosition = elementPosition - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <section className="container max-w-7xl mx-auto px-4 py-8 md:py-16">
       <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
@@ -55,35 +72,55 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* 3D Timeline Card */}
+        {/* Navigation Card */}
         <CardContainer className="inter-var">
           <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
             <CardItem
               translateZ="50"
               className="text-3xl font-bold tracking-tighter text-neutral-600 dark:text-white"
             >
-              Process Overview
+              Quick Navigation
             </CardItem>
             <CardItem
               as="ul"
               translateZ="60"
               className="text-neutral-500 text-sm dark:text-neutral-300 mt-4 space-y-4"
             >
-              <li className="flex items-center gap-2">
-                <span className="font-semibold">Day 1:</span>
-                Preparation and primary fermentation
+              <li>
+                <button 
+                  onClick={() => scrollToSection('process-overview')}
+                  className="flex items-center gap-2 w-full text-left hover:text-neutral-600 dark:hover:text-white transition-colors group"
+                >
+                  <span className="font-semibold">Process Overview</span>
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold">Days 2-5:</span>
-                Let that baby feed
+              <li>
+                <button 
+                  onClick={() => scrollToSection('requirements')}
+                  className="flex items-center gap-2 w-full text-left hover:text-neutral-600 dark:hover:text-white transition-colors group"
+                >
+                  <span className="font-semibold">Ingredients & Equipment</span>
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold">Day 6:</span>
-                Bottle for secondary fermentation
+              <li>
+                <button 
+                  onClick={() => scrollToSection('timeline')}
+                  className="flex items-center gap-2 w-full text-left hover:text-neutral-600 dark:hover:text-white transition-colors group"
+                >
+                  <span className="font-semibold">Step-by-step Instructions</span>
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
               </li>
-              <li className="flex items-center gap-2">
-                <span className="font-semibold">Days 7-10:</span>
-                Bacteria farts will carbonate
+              <li>
+                <button 
+                  onClick={() => scrollToSection('calculator')}
+                  className="flex items-center gap-2 w-full text-left hover:text-neutral-600 dark:hover:text-white transition-colors group"
+                >
+                  <span className="font-semibold">Recipe Calculator</span>
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
               </li>
             </CardItem>
           </CardBody>
@@ -92,6 +129,7 @@ export function Hero() {
 
       {/* Process Carousel */}
       <motion.div 
+        id="process-overview"
         className="mt-8 md:mt-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
