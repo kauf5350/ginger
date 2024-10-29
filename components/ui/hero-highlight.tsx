@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
-import React from "react";
+import React, { useRef, useState, useCallback } from "react";
 
 export const HeroHighlight = ({
   children,
@@ -60,13 +60,25 @@ export const HeroHighlight = ({
   );
 };
 
-export const Highlight = ({
+export const Highlight = ({ 
   children,
-  className,
-}: {
+  className 
+}: { 
   children: React.ReactNode;
   className?: string;
 }) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!divRef.current) return;
+    
+    const rect = divRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setPosition({ x, y });
+  }, []);
+
   return (
     <motion.span
       initial={{
@@ -86,7 +98,7 @@ export const Highlight = ({
         display: "inline",
       }}
       className={cn(
-        `relative inline-block pb-1   px-1 rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500`,
+        "relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500",
         className
       )}
     >

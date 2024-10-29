@@ -5,9 +5,11 @@
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-unused-vars": ["error", {
       "argsIgnorePattern": "^_",
-      "varsIgnorePattern": "^_"
+      "varsIgnorePattern": "^_",
+      "ignoreRestSiblings": true
     }],
     "react-hooks/exhaustive-deps": "warn",
-    "prefer-const": "warn"
+    "prefer-const": "warn",
+    "react/no-unescaped-entities": "off"
   }
 }
