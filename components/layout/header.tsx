@@ -22,9 +22,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container relative h-16">
-        {/* Logo container - absolutely positioned in center */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="container max-w-7xl mx-auto h-16 relative px-4">
+        <div className="flex h-full items-center justify-between">
+          {/* Empty div for spacing */}
+          <div className="w-10" />
+          
+          {/* Logo container */}
           <div className="relative h-8 w-32">
             <Image
               src={logoSrc}
@@ -34,11 +37,11 @@ export function Header() {
               priority
             />
           </div>
-        </div>
-        
-        {/* Theme toggle - fixed position on right */}
-        <div className="absolute right-4 top-1/2 -translate-y-1/2">
-          <ThemeToggle />
+
+          {/* Theme toggle */}
+          <div className="w-10">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>
